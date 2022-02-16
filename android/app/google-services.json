@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "399131390810",
+    "project_id": "cloud-firestore-example-8f3f0",
+    "storage_bucket": "cloud-firestore-example-8f3f0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:399131390810:android:24c6669ee31b700644f963",
+        "android_client_info": {
+          "package_name": "org.bilgen.cloud_firestore_example"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "399131390810-iiphmbkvo3rgkji4nv10ntoce8da2fp2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBu1h_BdEv2H9cBV2E83covo-Z1wbGYCrk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "399131390810-iiphmbkvo3rgkji4nv10ntoce8da2fp2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
