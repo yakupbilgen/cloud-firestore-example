@@ -33,7 +33,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
               width: deviceSize.width,
               child: ElevatedButton(
                 onPressed: () {},
-                child: const Text('Login'),
+                child: const Text('Register'),
+              ),
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(AppConstant.defaultBorderRadius),
+                ),
               ),
             ),
           ],

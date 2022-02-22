@@ -9,6 +9,8 @@ class LoginScreen extends StatefulWidget {
   _LoginScreenState createState() => _LoginScreenState();
 }
 
+bool passwordVisible = false;
+
 class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
@@ -19,14 +21,25 @@ class _LoginScreenState extends State<LoginScreen> {
         padding: const EdgeInsets.all(AppConstant.defaultPadding),
         child: Column(
           children: [
-            const TextField(
-              decoration: InputDecoration(
-                  border: OutlineInputBorder(), hintText: 'E-mail'),
+            TextFormField(
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: 'E-mail',
+                filled: true,
+                fillColor: Color.fromARGB(99, 189, 189, 189),
+                prefix: Icon(Icons.person),
+              ),
             ),
             const SizedBox(height: AppConstant.defaultHeight),
-            const TextField(
-              decoration: InputDecoration(
-                  border: OutlineInputBorder(), hintText: 'Password'),
+            TextField(
+              obscureText: passwordVisible,
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: 'Password',
+                suffixIcon: Icon(Icons.remove_red_eye),
+                filled: true,
+                fillColor: Color.fromARGB(99, 189, 189, 189),
+              ),
             ),
             const SizedBox(height: AppConstant.defaultHeight),
             Container(
@@ -34,6 +47,11 @@ class _LoginScreenState extends State<LoginScreen> {
               child: ElevatedButton(
                 onPressed: () {},
                 child: const Text('Login'),
+              ),
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(AppConstant.defaultBorderRadius),
+                ),
               ),
             ),
           ],
