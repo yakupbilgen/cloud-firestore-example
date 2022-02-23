@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../constant/constant.dart';
 
@@ -22,6 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Column(
           children: [
             TextFormField(
+              keyboardType: TextInputType.emailAddress,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 hintText: 'E-mail',
@@ -32,6 +34,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             const SizedBox(height: AppConstant.defaultHeight),
             TextField(
+              keyboardType: TextInputType.visiblePassword,
               obscureText: passwordVisible,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
