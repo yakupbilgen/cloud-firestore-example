@@ -11,6 +11,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 bool passwordVisible = false;
+Icon passwordSuffixIcon = const Icon(Icons.remove_red_eye_sharp);
 TextEditingController _emailController = TextEditingController();
 TextEditingController _passwordController = TextEditingController();
 
@@ -40,12 +41,23 @@ class _LoginScreenState extends State<LoginScreen> {
               keyboardType: TextInputType.visiblePassword,
               controller: _passwordController,
               obscureText: passwordVisible,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                border: const OutlineInputBorder(),
                 hintText: 'Password',
-                suffixIcon: Icon(Icons.remove_red_eye),
+                suffixIcon: IconButton(
+                  onPressed: () {
+                    passwordVisible = !passwordVisible;
+                    (passwordVisible == true)
+                        ? passwordSuffixIcon =
+                            const Icon(Icons.remove_red_eye_outlined)
+                        : passwordSuffixIcon =
+                            const Icon(Icons.remove_red_eye_sharp);
+                    setState(() {});
+                  },
+                  icon: passwordSuffixIcon,
+                ),
                 filled: true,
-                fillColor: Color.fromARGB(99, 189, 189, 189),
+                fillColor: const Color.fromARGB(99, 189, 189, 189),
               ),
             ),
             const SizedBox(height: AppConstant.defaultHeight),
