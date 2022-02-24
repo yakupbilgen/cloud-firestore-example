@@ -1,11 +1,10 @@
+import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 
-Future<void> createUserEmailAndPassword() async {
+Future<void> createUserEmailAndPassword(String _email, String _password) async {
   try {
     UserCredential userCredential = await FirebaseAuth.instance
-        .createUserWithEmailAndPassword(
-            email: "example@email.com", password: "123456");
+        .createUserWithEmailAndPassword(email: _email, password: _password);
 
     debugPrint(userCredential.user?.email);
   } on FirebaseAuthException catch (e) {
@@ -14,6 +13,17 @@ Future<void> createUserEmailAndPassword() async {
     } else if (e.code == "email-already-in-use") {
       debugPrint("The account already exists for the email.");
     }
+  } catch (e) {
+    debugPrint(e.toString());
+  }
+}
+
+Future<void> signInUserEmailAndPassword(String _email, String _password) async {
+  try {
+    UserCredential userCredential = await FirebaseAuth.instance
+        .signInWithEmailAndPassword(email: _email, password: _password);
+
+    debugPrint(userCredential.user?.email);
   } catch (e) {
     debugPrint(e.toString());
   }

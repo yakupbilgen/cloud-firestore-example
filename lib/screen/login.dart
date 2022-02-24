@@ -1,5 +1,5 @@
+import 'package:cloud_firestore_example/firebase/app_firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../constant/constant.dart';
 
@@ -11,6 +11,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 bool passwordVisible = false;
+TextEditingController _emailController = TextEditingController();
+TextEditingController _passwordController = TextEditingController();
 
 class _LoginScreenState extends State<LoginScreen> {
   @override
@@ -24,6 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
           children: [
             TextFormField(
               keyboardType: TextInputType.emailAddress,
+              controller: _emailController,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 hintText: 'E-mail',
@@ -35,6 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
             const SizedBox(height: AppConstant.defaultHeight),
             TextField(
               keyboardType: TextInputType.visiblePassword,
+              controller: _passwordController,
               obscureText: passwordVisible,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
@@ -48,7 +52,8 @@ class _LoginScreenState extends State<LoginScreen> {
             Container(
               width: deviceSize.width,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () => signInUserEmailAndPassword(
+                    _emailController.text, _passwordController.text),
                 child: const Text('Login'),
               ),
               decoration: const BoxDecoration(
