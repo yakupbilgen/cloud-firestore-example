@@ -1,3 +1,4 @@
+import 'package:cloud_firestore_example/firebase/app_firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../constant/constant.dart';
@@ -8,6 +9,9 @@ class RegisterScreen extends StatefulWidget {
   @override
   _RegisterScreenState createState() => _RegisterScreenState();
 }
+
+TextEditingController _emailController = TextEditingController();
+TextEditingController _passwordController = TextEditingController();
 
 class _RegisterScreenState extends State<RegisterScreen> {
   @override
@@ -44,7 +48,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
             Container(
               width: deviceSize.width,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () => signInUserEmailAndPassword(
+                    _emailController.text, _passwordController.text),
                 child: const Text('Register'),
               ),
               decoration: const BoxDecoration(
